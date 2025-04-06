@@ -1,0 +1,648 @@
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+// varabile
+$primary-color: #000;
+$hover-bg: #cccccc;
+$gray-bg: #f6f6f6;
+$transition: 0.3s;
+$color:#595a5a;
+$main-color:#a9a9a9;
+$padding:100px;
+$color-alt2:#595a5a;
+$color-alt:#fff;
+$color-alt3:#cccccccc;
+$padding-sction:128px 16px;
+$color-alt4:#f1f1f1;
+
+html {
+    scroll-behavior: smooth;
+  }
+ body{
+    font-family: "Raleway", sans-serif;
+  }
+a {
+    text-decoration: none;
+  }
+ul{
+    list-style: none;
+}
+
+@mixin title(){
+    text-align: center;
+    font-weight: 400;
+    margin: 25px 0;                                         //mixin
+    font-size: 24px;
+  }
+  @mixin para(){
+    text-align: center;
+    font-size: 18px;
+  }
+  @mixin flexB(){
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header {
+    @include flexB();
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    padding-top: 16px;
+    background-color: $color-alt;
+    padding-bottom: 0;
+  }
+
+  .header .logo {
+    color: $primary-color;
+    letter-spacing: 4px;
+    padding: 16px;
+    transition: $transition;
+
+    &:hover{
+        background-color: $color-alt3;
+    }
+  }
+
+  .header .nav {
+    margin-left: auto;
+    display: flex;
+    color: $primary-color
+  }
+  .header .nav li {
+    padding: 16px;
+    transition: $transition;
+
+    &:hover{
+        background-color: $color-alt3;
+    }
+  }
+  .header .nav li a {
+    color: $primary-color;
+    font-size: 14px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+//start home
+.home {
+    height: 100vh;
+    min-height: 100%;
+    background-image: url('../images/imge1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center; 
+    filter: grayscale(50%);
+    position: relative;
+  }
+ .home .text{
+    color: #fff;
+    padding:48px;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(0%, -50%);
+
+    h2 {
+        font-size: 62px;
+        margin-bottom: 35px;
+        font-weight: 500;
+      }
+
+    }
+  .home .text p {
+    font-size:  18px;
+    /* margin-bottom: 30px; */
+    margin-bottom: 42px;
+  }
+  .home .text .link {
+    display: inline-block;
+    background-color: $color-alt3;
+    color: $primary-color;
+    padding: 20px 25px ;
+    /* padding: 12px 24px ; */
+    font-size: 18px;
+    transition:  $transition;
+  }
+  .home .text .link:hover{
+      background-color: #ffffffcd;
+  }
+  .home .icons{
+      padding: 24px 48px ;
+      display: flex;
+      gap: 4px;
+      color: #ccccccac;
+      font-size:  18px;
+      position: absolute;
+      /* out content */
+      bottom: -170px;   
+      /* bottom: -118px; */
+      left: 0;
+      transition: $transition;
+
+      &:hover i{
+        color: #7575753c ;
+       } 
+  }
+  .home .icons .snap{
+      border-radius: 50%;
+}
+//end home
+/* start about */
+.about{
+    padding: 128px 16px;
+  }
+  .about .title{
+    @include title();
+  }
+  .about .para{
+    @include para();
+  }  
+.about .boxs{
+    @include flexB();
+    flex-wrap: nowrap;
+    margin-top: 64px;
+  }
+.about .boxs .box{
+    padding: 20px;
+    text-align: center;
+}
+.about .boxs .box i{
+    color: $primary-color;
+    margin-bottom: 24px;
+    font-size: 64px;
+}
+.about .boxs .box h3{
+  font-size: 18px;
+  color: #222;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+.about .boxs .box p{
+    font-size: 15px;
+    line-height: 1.8;
+    color: #222;
+}
+/* end about */
+
+/* start design */
+.design{
+    padding: 128px 16px;
+    background-color:#f6f6f6;
+    display: flex;
+    justify-content: space-between;
+
+    .text{
+        width: 49.5%;
+    }
+    h3{
+        font-size: 24px;
+        color: $primary-color;
+        font-weight: 400;
+        margin: 10px 0;
+    }
+    p:first-of-type{
+        font-size: 15px;
+        color: $primary-color;
+        line-height: 1.8;
+        margin: 10px 0;
+    }
+
+    p:last-of-type{
+        display: inline-block;
+        background-color: $primary-color;
+        padding: 12px 24px ;
+        font-size: 15px;
+        transition:  $primary-color;
+        a{
+            color: $color-alt;
+        }
+        &:hover{
+            background-color: $color-alt3;
+            a{
+                color: $primary-color;
+            }
+        }
+    }
+
+}
+
+.design .imge img{
+    border-radius: 8px;
+}
+/* end design */
+/* start team */
+.team{
+  padding: 128px 16px;
+  position: relative;
+}
+.team .title{
+  @include title();
+}
+.team .para{
+  @include para();
+}
+.team .boxs{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 15px;
+  margin-top: 64px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.team .boxs .box{
+  filter: grayscale(75%);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  background-color: white;
+  overflow: hidden;
+  transition: transform $transition, box-shadow $transition;
+}
+.team .boxs .box img{
+max-width: 100%;
+}
+.team .boxs .box .text{
+  padding: 0.01em 16px;
+}
+.team .boxs .box .text h3{
+  font-weight: 400;
+  margin: 15px 0;
+  font-size: 24px;
+}
+.team .boxs .box .text p:first-of-type{
+  font-weight: 400;
+  margin: 15px 0;
+  font-size: 16px;
+  color: #777;
+}
+.team .boxs .box .text p:last-of-type{
+  font-weight: 400;
+  margin: 15px 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+.team .boxs .box .icon {
+ @include flexB();
+  margin-bottom: 14px;
+}
+.team .boxs .box .icon button {
+  padding: 15px 120px;
+  background-color: $color-alt4;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  transition: $transition;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.team .boxs .box .icon button i {
+  font-size: 16px;
+  color: $primary-color;
+}
+.team .boxs .box .icon button:hover{
+  background-color: $color-alt3;
+}
+/* end team */
+/* start statsical */
+.status{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  margin-top: 128px;
+  color: $color-alt;
+  background-color: #616161 ;
+  @include flexB();
+}
+.status .text{
+  padding-top: 60px;
+  padding-bottom: 60px;
+  text-align: center;
+  line-height: 1.8;
+}
+.status .text span{
+  font-size: 36px
+}
+.status .text p{
+  font-size: 16px;
+}
+/* end statsical */
+/*  start work*/
+.work {
+  padding: 128px 16px;
+  position: relative;
+}
+.work .imags {
+  margin-top: 64px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 10px;
+}
+.work .imags .box {
+transition: $transition;   
+}  
+.work .imags .box {
+  position: relative;
+  overflow: hidden;
+  transition: .3s;   
+}
+.work .imags .box img {
+  max-width: 100%;
+  width: 352px;
+  height: 235px;
+  transition: $transition;
+  display: block; 
+
+   &:hover{
+    transform: scale(1.05);
+
+   }
+}
+.work .imags .box::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  background-color: #ededed59;
+  z-index: 1; 
+  transition: $transition;
+}
+.work .imags .box:hover::before {
+  width: 100%; 
+  height: 100%;
+}
+/* end work */
+/* start skills */
+.skills{
+  padding-top:60px;
+  padding-bottom: 24px;
+  background-color: #f6f6f6;
+}
+// .skills .title{
+//   @include title();
+// }
+// .skills .para{
+//   @include para();
+// }
+.skills .container{
+   @include flexB();
+  padding: 0.01em 32px;
+}
+.skills .container .text{
+  width: 49%;
+}
+.skills .container .text h3{
+  font-weight: 400;
+  margin: 10px 0;
+  font-size: 24px;
+}
+.skills .container .text p{
+  font-weight: 400;
+  color:$primary-color;
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom:15px ;
+}
+.skill {
+  width: 49%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.skill .icon {
+  font-size: 16px;
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #333;
+  letter-spacing: 4px;
+}
+.skill .icon i{
+  color: #000;
+}
+.skill .content {
+  background-color: gray;
+  height: 25px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.skill .inside {
+  height: 100%;
+  line-height: 25px;
+  text-align: center;
+  padding-right: 10px;
+  background: linear-gradient(to right, #616161 95%, gray 5%);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  position: relative;
+}
+/* end skills */
+// start pricing
+.pricing{
+    padding: 128px 16px;
+    background-color: #616161;
+    color: #fff;
+    position: relative;
+
+}
+.pricing h3{
+    text-align: center;
+    font-weight: 400;
+    margin: 25px 0;
+    font-size: 24px;
+}
+.pricing p{
+    text-align: center;
+    font-size: 18px;
+}
+.pricing .container{
+  padding-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 10px;
+}
+.pricing .box{
+  background-color: white;
+  box-shadow: 0 12px 20px 0 rgb(0 0 0 / 13%), 0 2px 4px 0 rgb(0 0 0 / 12%);
+  position: relative;
+  text-align: center;
+  transition: .3s;
+  z-index: 0;
+  /* height: 595px; */
+}
+.pricing .box .head{
+  /* margin: 30px 0; */
+  letter-spacing: -1px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #fff;
+  padding:45px 40px;
+}
+.pricing .box .head{
+  background-color: $primary-color;
+}
+.pricing .box .hgh{
+  background-color: red;
+}
+.pricing .box .price{
+  margin-bottom: 20px;
+}
+.pricing .box ul{
+  text-align: center;
+}
+.pricing .box ul li{
+  color: #333;
+  padding: 20px;
+  border-top: 2px solid #eee;
+}
+.pricing .box .price span:first-child{
+  padding: 25px 0;
+  border-top: 1px solid #ccc;
+  display: block;
+  font-size: 30px;
+  font-weight: 500;
+  color: $primary-color;
+}
+.pricing .box .price span:last-child{
+  color: #777;
+  font-weight: 400;
+}
+.pricing .box .link{
+  border-top: 1px solid #ccc;
+  background-color: $color-alt3;
+  @include flexB();
+  margin-top: auto; 
+
+}
+.pricing .box a{
+  color:#fff;
+  width: fit-content;
+  padding: 18px 22px;
+  background-color:$primary-color;
+  margin: 20px auto 30px;
+  transition: .3s;
+  font-weight: 400;
+  
+  &:hover{
+    background-color: $color-alt3;
+    color: $primary-color;
+  }
+}
+
+/* /end pricing */
+/* start contact */
+.contact{
+    padding: 128px 16px;
+    background-color: #f1f1f1 ;
+    position: relative;
+}
+ .contact .title{
+  @include title();
+ }
+.contact .container{
+  display: block;
+  margin-top: 48px;
+  color: $primary-color;
+}
+.contact .container .box{
+  display:flex;
+  margin-bottom: 18px;
+}
+.contact .container .box i{
+  color: $primary-color;
+  margin-right: 20px;
+}
+.contact .container .box p{
+  font-size: 15px;
+  line-height: 1.8;
+}
+.contact .container input[type="text"]{
+  width: 100%;
+  padding: 14px 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  font-weight: 200;
+  color: #ccc;
+}
+.contact .container .btn button{
+  border: none;
+  padding: 14px 20px;
+  background-color:  $primary-color;
+  color: white;
+  font-size: 15px;
+  font-weight: 400;
+  transition: .3s;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.contact .container .btn button:hover{
+  background-color: #cccccccc;
+  color:  $primary-color;
+}
+.contact .container img{
+  width: 100%;
+  margin-top: 48px;
+  filter: grayscale(75%);
+  height: auto;
+}
+/* end contact */
+/* start footer */
+.footer{
+    padding: 48px 16px;
+    background-color:  $primary-color;
+    color: #fff;
+    text-align: center;
+    
+}
+.footer .link{
+  padding: 12px 16px;
+  color:  $primary-color;
+  background-color: #f1f1f1;
+  line-height: 3;
+  transition: .3s;
+  cursor: pointer;
+}
+.footer .link i{
+  color:  $primary-color;
+  margin-right: 10px;
+  font-size: 16px;
+  /* width: 10px; */
+}
+.footer .link:hover{
+  background-color: #616161;
+}
+.footer .social{
+  color: #fff;
+  gap: 14px;
+  font-size: 22px;
+  line-height: 3;
+}
+.footer p a{
+  text-decoration: underline;
+  color: #fff;
+ 
+  cursor: pointer;
+  &:hover{
+    color: green;
+  }
+}
